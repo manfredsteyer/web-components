@@ -1,3 +1,21 @@
+const tmpl = document.createElement('template');
+tmpl.innerHTML = `
+    <style>
+    .checkbox {
+        border: 2px black solid;
+        display: inline;
+        padding:10px;
+        cursor: pointer;
+    }
+
+    .checkbox-checked {
+        background-color: LightSteelBlue
+    }
+    </style>
+
+    <div class="checkbox"></div>
+`;
+
 
 export class CustomCheckboxElement extends HTMLElement {
 
@@ -30,23 +48,7 @@ export class CustomCheckboxElement extends HTMLElement {
         
         this.attachShadow({mode: 'open'});
 
-        this.shadowRoot.innerHTML = `
-        
-            <style>
-                .checkbox {
-                    border: 2px black solid;
-                    display: inline;
-                    padding:10px;
-                    cursor: pointer;
-                }
-
-                .checkbox-checked {
-                    background-color: LightSteelBlue
-                }
-            </style>
-
-            <div class="checkbox">${this.label}</div>
-        `;
+        this.shadowRoot.appendChild(tmpl.content.cloneNode(true));
         
         const checkbox = this.shadowRoot.querySelector('.checkbox');        
         checkbox.addEventListener('click', () => {
@@ -58,6 +60,8 @@ export class CustomCheckboxElement extends HTMLElement {
             this.dispatchEvent(event)
             
         });
+
+        this.label = 'Yes or No?';
     }
 
     static get observedAttributes() {

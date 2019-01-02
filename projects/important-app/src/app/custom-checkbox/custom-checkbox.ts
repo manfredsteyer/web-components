@@ -20,7 +20,8 @@ tmpl.innerHTML = `
 export class CustomCheckboxElement extends HTMLElement {
 
     _checked: boolean = false;
-    _label: string = 'Yes or No?';
+    _label: string;
+    _click;
 
     get checked() { return this._checked; }
     set checked(value: boolean) { 
@@ -45,27 +46,36 @@ export class CustomCheckboxElement extends HTMLElement {
 
     constructor() {
         super();
-        
         this.attachShadow({mode: 'open'});
-
         this.shadowRoot.appendChild(tmpl.content.cloneNode(true));
-        
-        const checkbox = this.shadowRoot.querySelector('.checkbox');        
-        checkbox.addEventListener('click', () => {
-            this.checked = !this.checked;
-            
-            const event = new Event('changed');
-            event['detail'] = this.checked;
-            
-            this.dispatchEvent(event)
-            
-        });
-
         this.label = 'Yes or No?';
     }
 
     static get observedAttributes() {
         return ['label', 'checked'];
+    }
+
+
+    _clicked: EventListener;
+
+    connectedCallback() {
+        
+        const checkbox = this.shadowRoot.querySelector('.checkbox');        
+        //checkbox.addEventListener('click', this.clicked);
+        
+        this._clicked = () => {
+            this.checked = !this.checked;
+            const event = new CustomEvent('changed', {detail: this.checked});
+            this.dispatchEvent(event)
+        };
+
+        checkbox.addEventListener('click', this._clicked);
+    }
+
+
+    disconnectedCallback() {
+        const checkbox = this.shadowRoot.querySelector('.checkbox');        
+        checkbox.removeEventListener('click', this._clicked);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {

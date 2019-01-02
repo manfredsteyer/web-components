@@ -75,4 +75,3 @@ export class CustomCheckboxElement extends HTMLElement {
 
 }
 
-customElements.define('custom-checkbox', CustomCheckboxElement);

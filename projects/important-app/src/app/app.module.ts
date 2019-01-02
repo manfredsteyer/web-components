@@ -1,4 +1,3 @@
-import { CustomCheckboxDirective } from './custom-check-box/custom-checkbox.directive';
 import {HttpClientModule} from '@angular/common/http';
 
 import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
@@ -12,21 +11,22 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {SharedModule} from './shared/shared.module';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import { HelloWorldPageComponent } from './hello-world-page/hello-world-page.component';
+import { CustomCheckboxModule } from './custom-checkbox/custom-checkbox.module';
 
 @NgModule({
    imports: [
       BrowserModule,
       HttpClientModule,
       SharedModule.forRoot(),
-      RouterModule.forRoot(APP_ROUTES)
+      RouterModule.forRoot(APP_ROUTES),
+      CustomCheckboxModule
    ],
    declarations: [
       AppComponent,
       SidebarComponent,
       NavbarComponent,
       HomeComponent,
-      HelloWorldPageComponent,
-      CustomCheckboxDirective
+      HelloWorldPageComponent
    ],
    providers: [],
    schemas: [

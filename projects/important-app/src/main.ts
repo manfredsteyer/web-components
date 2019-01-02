@@ -4,7 +4,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app/app.module';
 import {environment} from './environments/environment';
 
-import './app/custom-check-box/custom-checkbox';
+import './app/custom-checkbox/custom-checkbox';
 
 if (environment.production) {
   enableProdMode();

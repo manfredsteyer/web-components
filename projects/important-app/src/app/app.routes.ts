@@ -1,3 +1,5 @@
+import { TabsPageComponent } from './tabs-page/tabs-page.component';
+import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { CustomCheckboxPageComponent } from './custom-checkbox-page/custom-checkbox-page.component';
 import {ExtraOptions, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
@@ -20,6 +22,14 @@ export const APP_ROUTES: Routes = [
   {
     path: 'custom-checkbox',
     component: CustomCheckboxPageComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardPageComponent
+  },
+  {
+    path: 'tabs',
+    component: TabsPageComponent
   },
   {
     path: '**',

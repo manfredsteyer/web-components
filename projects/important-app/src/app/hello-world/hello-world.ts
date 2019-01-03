@@ -3,7 +3,7 @@ export class HelloWorldElement extends HTMLElement {
 
     _name: string;
     
-    get name() { 
+    get name() {    
         return this._name; 
     }
 
@@ -18,10 +18,18 @@ export class HelloWorldElement extends HTMLElement {
         
         this.shadowRoot.innerHTML = `
             <style>
+
                 #main {
-                    border: 2px solid black;
-                    padding: 20px;
+                    padding-left: 20px;
+                    padding-top: 50px;
                     margin: 20px;
+                    background-image: url(/assets/badge.png);
+                    background-repeat: no-repeat;
+                    width:200px;
+                    height:100px;
+                    font-color: black;
+                    font-size:20px;
+                    font-family: 'Amaranth', sans-serif;
                 }
             </style>
             <div id="main"></div>

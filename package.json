@@ -8,7 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "npx-build-plus:copy-assets": "node projects/important-app/copy-wc-polyfill.js"
+    "npx-build-plus:copy-assets": "node projects/important-app/copy-wc-polyfill.js && node projects/external/copy-wc-polyfill.js",
+    "start:ce": "ng serve -o --project external",
+    "build:ce": "npm run bundle:ce && npm run copy:ce",
+    "copy:ce": "cpr dist/external/main.js projects/important-app/src/assets/external-dashboard-tile.bundle.js -o",
+    "bundle:ce": "ng build --prod --project external --output-hashing none --single-bundle"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +33,7 @@
     "@ngrx/store-devtools": "^6.0.1",
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
+    "@swimlane/ngx-charts": "^10.0.0",
     "@webcomponents/custom-elements": "^1.1.2",
     "angular-oauth2-oidc": "^4.0.2",
     "bootstrap": "^3.3.7",
@@ -37,23 +42,21 @@
     "ngx-build-plus": "^7.5.6",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.1.0",
+    "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^7.1.4",
-    "@angular-devkit/build-ng-packagr": "~0.6.1",
     "@angular-devkit/build-angular": "~0.6.0",
-    "ng-packagr": "^3.0.0-rc.2",
-    "tsickle": ">=0.25.5",
-    "tslib": "^1.7.1",
-    "typescript": "~3.1.6",
+    "@angular-devkit/build-ng-packagr": "~0.6.1",
     "@angular/cli": "~7.1.4",
+    "@angular/compiler-cli": "^7.1.4",
     "@angular/language-service": "^7.1.4",
     "@ngrx/schematics": "^6.0.1",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "cpr": "^3.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
@@ -61,8 +64,12 @@
     "karma-coverage-istanbul-reporter": "~1.4.2",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^3.0.0-rc.2",
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
-    "tslint": "~5.9.1"
+    "tsickle": ">=0.25.5",
+    "tslib": "^1.7.1",
+    "tslint": "~5.9.1",
+    "typescript": "~3.1.6"
   }
 }

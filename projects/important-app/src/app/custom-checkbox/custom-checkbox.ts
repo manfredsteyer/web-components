@@ -21,7 +21,7 @@ export class CustomCheckboxElement extends HTMLElement {
 
     _checked: boolean = false;
     _label: string;
-    _click;
+    _clicked: EventListener;
 
     get checked() { return this._checked; }
     set checked(value: boolean) { 
@@ -55,8 +55,6 @@ export class CustomCheckboxElement extends HTMLElement {
         return ['label', 'checked'];
     }
 
-
-    _clicked: EventListener;
 
     connectedCallback() {
         

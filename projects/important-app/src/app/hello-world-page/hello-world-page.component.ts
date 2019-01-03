@@ -7,17 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelloWorldPageComponent implements OnInit {
 
-  ok: boolean = false;
-
-  changed($event) {
-    console.debug('changed', $event.detail);
-    this.ok = $event.detail;
-  }
-
   constructor() { }
+
+
+  counted($event) {
+    console.debug('counted', $event.detail)
+  }
 
   ngOnInit() {
   }
-
 
 }

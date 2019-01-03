@@ -12,6 +12,7 @@ import {SharedModule} from './shared/shared.module';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import { HelloWorldPageComponent } from './hello-world-page/hello-world-page.component';
 import { CustomCheckboxModule } from './custom-checkbox/custom-checkbox.module';
+import { CustomCheckboxPageComponent } from './custom-checkbox-page/custom-checkbox-page.component';
 
 @NgModule({
    imports: [
@@ -26,11 +27,12 @@ import { CustomCheckboxModule } from './custom-checkbox/custom-checkbox.module';
       SidebarComponent,
       NavbarComponent,
       HomeComponent,
-      HelloWorldPageComponent
+      HelloWorldPageComponent,
+      CustomCheckboxPageComponent
    ],
    providers: [],
    schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
+      CUSTOM_ELEMENTS_SCHEMA
    ],
    bootstrap: [
       AppComponent

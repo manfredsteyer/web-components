@@ -1,6 +1,5 @@
-<p>
-  <custom-checkbox [(checked)]="ok"></custom-checkbox>
-  
-</p>
+<h1>
+  <hello-world [name]="'World'" (counted)="counted($event)"></hello-world>
 
-<div class="checkbox-checked">{{ok}}</div>
+  <hello-world name="Angular" (counted)="counted($event)"></hello-world>
+</h1>

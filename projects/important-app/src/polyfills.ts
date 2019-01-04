@@ -37,6 +37,7 @@ import 'classlist.js';  // Run `npm install --save classlist.js`.
 /** Evergreen browsers require these. **/
 import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
+
 /**
  * Required to support Web Animations `@angular/animation`.
  * Needed for: All but Chrome, Firefox and Opera. http://caniuse.com/#feat=web-animation
@@ -61,3 +62,14 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
  * Need to import at least one locale-data with intl.
  */
 // import 'intl/locale-data/jsonp/en';
+
+if (typeof SVGElement.prototype.contains == 'undefined') {
+    SVGElement.prototype.contains = HTMLDivElement.prototype.contains;
+}
+
+// This polyfill needs to be loaded 
+// via a script tag after core-js
+// Origin: @webcomponents/webcomponentsjs
+if (!window['customElements']) {
+    document.write(`<script src="/assets/webcomponentsjs/webcomponents-loader.js"></script>`);
+}

@@ -69,7 +69,7 @@ if (typeof SVGElement.prototype.contains == 'undefined') {
 
 // This polyfill needs to be loaded 
 // via a script tag after core-js
-// @webcomponents/webcomponentsjs
+// Origin: @webcomponents/webcomponentsjs
 if (!window['customElements']) {
     document.write(`<script src="/assets/webcomponentsjs/webcomponents-loader.js"></script>`);
 }

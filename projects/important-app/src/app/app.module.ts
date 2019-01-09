@@ -47,8 +47,6 @@ import { DemoModule } from './demo/demo.module';
    providers: [],
    schemas: [
       // TODO: Add CUSTOM_ELEMENTS_SCHEMA
-      CUSTOM_ELEMENTS_SCHEMA
-      // END
    ],
    bootstrap: [
       AppComponent

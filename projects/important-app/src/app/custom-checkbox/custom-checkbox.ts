@@ -32,14 +32,6 @@ export class CustomCheckboxElement extends HTMLElement {
         //       Otherwise, remove this class.
         //       Hint: You can use checkbox.classList.add and .remove for this
 
-        if (value) {
-            checkbox.classList.add('checkbox-checked');
-        }
-        else {
-            checkbox.classList.remove('checkbox-checked');
-        }
-
-        // END
     }
 
     get label() { return this._label; }
@@ -72,10 +64,6 @@ export class CustomCheckboxElement extends HTMLElement {
             
             // TODO: Dispatch a changed event with detail: this.checked here.
 
-            const event = new CustomEvent('changed', {detail: this.checked});
-            this.dispatchEvent(event);
-
-            // END
         };
 
         checkbox.addEventListener('click', this._clicked);
@@ -90,14 +78,6 @@ export class CustomCheckboxElement extends HTMLElement {
     attributeChangedCallback(name, oldValue, newValue) {
         // TODO: Synchronize the attributes label and checked with the respective properties
 
-        if (name === 'label') {
-            this.label = newValue;
-        }
-        else if (name === 'checked') {
-            this.checked = (newValue === 'true');
-        }
-
-        // END
     }
 
 }

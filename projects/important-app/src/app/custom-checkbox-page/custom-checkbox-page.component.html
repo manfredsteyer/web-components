@@ -2,9 +2,6 @@
   <!-- TODO: Call your custom-checkbox component here.
   Bind checked to value1, changed to changed($event), and label to Option 1-->
 
-  <custom-checkbox [checked]="value1" (changed)="changed($event)" label="Option 1"></custom-checkbox>
-
-  <!-- END -->
   <span>{{value1}}</span>
 </div>
 
@@ -15,8 +12,3 @@
   Use a Two-Way-Binding to bind value2 and set the label to Option 2.
 -->
   
-<div>
-  <custom-checkbox [(checked)]="value2" label="Option 2"></custom-checkbox>
-  <span>{{value2}}</span>
-</div>
-

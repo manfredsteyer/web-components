@@ -3,29 +3,29 @@ import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
 
 export interface Data {
-  a: number;
-  b: number;
-  c: number;
+	a: number;
+	b: number;
+	c: number;
 }
 
 @Component({
-  // selector: 'app-external-dashboard-tile',
-  templateUrl: './external-dashboard-tile.component.html',
-  styleUrls: ['./external-dashboard-tile.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+	// selector: 'app-external-dashboard-tile',
+	templateUrl: './external-dashboard-tile.component.html',
+	styleUrls: ['./external-dashboard-tile.component.css'],
+	// changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExternalDashboardTileComponent implements OnInit {
 
-  private src: number = 0;
-  
-  data$ = new ReplaySubject<Data>(1);
+	private src: number = 0;
+	
+	data: Data = { a: null, b: null, c: null };
 
-  constructor(private http: HttpClient) {
-  }
+	constructor(private http: HttpClient) {
+	}
 
-  ngOnInit(): void {
-    this.more();
-  }
+	ngOnInit(): void {
+		this.more();
+	}
 
   more() {
     this.src++;
@@ -34,7 +34,7 @@ export class ExternalDashboardTileComponent implements OnInit {
     // publish further data
     this.http
         .get<Data>(`/assets/stats-${this.src}.json`)
-        .subscribe(data => this.data$.next(data));
+        .subscribe(data => this.data = data);
   }
 
 }

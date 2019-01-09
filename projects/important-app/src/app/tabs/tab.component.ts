@@ -8,9 +8,13 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
       <h2>{{title}}</h2>
 
       <div id="content">
-        <slot></slot>
+        
+      <!-- TODO: Display projected data (from the default slot w/o a name) here-->
+
         <div class="small">
-          <slot name="footer"></slot>
+        
+        <!-- TODO: Display projected footer here-->
+
         </div>
       </div>
 

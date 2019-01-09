@@ -27,21 +27,6 @@ export class ExternalDashboardTileService {
     //
     // HINT: The goal is to dynamically add this to the end of the body:
     //         <script src="..."></script>
-    const scriptLegacy = document.createElement('script');
-    scriptLegacy.src = 'assets/external-dashboard-tile.legacy.bundle.js';
-    scriptLegacy.setAttribute('nomodule', '');
-    scriptLegacy.type = 'text/javascript';
-    scriptLegacy['nomodule'] = true;
-    document.body.appendChild(scriptLegacy);
-    
-
-    const scriptModern = document.createElement('script');
-    scriptModern.src = 'assets/external-dashboard-tile.modern.bundle.js';
-    scriptModern.type = 'module'
-    document.body.appendChild(scriptModern);
-
-    // END
-    
   }
 
 }

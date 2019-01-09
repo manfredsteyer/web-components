@@ -12,7 +12,13 @@
     "start:ce": "ng serve -o --project external",
     "build:ce": "npm run bundle:ce && npm run copy:ce",
     "copy:ce": "cpr dist/external/main.js projects/important-app/src/assets/external-dashboard-tile.bundle.js -o",
-    "bundle:ce": "ng build --prod --project external --output-hashing none --single-bundle"
+    "copy:modern": "cpr dist/external/main.modern.js projects/important-app/src/assets/external-dashboard-tile.modern.bundle.js -o",
+    "copy:legacy": "cpr dist/external/main.legacy.js projects/important-app/src/assets/external-dashboard-tile.legacy.bundle.js -o",
+    "copy:ce:modern": "npm run copy:modern && npm run copy:legacy",
+    "bundle:ce": "ng build --prod --project external --output-hashing none --single-bundle",
+    "build:modern": "ng build --plugin ngx-build-modern --prod",
+    "build:modern:important-app": "ng build --plugin ngx-build-modern --project important-app --prod",
+    "build:modern:external": "ng build --plugin ngx-build-modern --project external --prod"
   },
   "private": true,
   "dependencies": {

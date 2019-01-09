@@ -47,6 +47,7 @@ import 'web-animations-js';  // Run `npm install --save web-animations-js`.
  * Zone JS is required by Angular itself.
  */
 import 'zone.js/dist/zone'; // Included with Angular CLI.
+import { environment } from './environments/environment';
 
 
 /***************************************************************************************************
@@ -67,9 +68,16 @@ if (typeof SVGElement.prototype.contains == 'undefined') {
     SVGElement.prototype.contains = HTMLDivElement.prototype.contains;
 }
 
+// TODO: Add Polyfills (ng add ngx-build-plus && ng g ngx-build-plus:wc-polyfill)
+
+if (window['customElements'] && !environment.production) {
+    document.write('<script src="/assets/custom-elements/src/native-shim.js"></script>')
+}
+
 // This polyfill needs to be loaded 
 // via a script tag after core-js
 // Origin: @webcomponents/webcomponentsjs
 if (!window['customElements']) {
     document.write(`<script src="/assets/webcomponentsjs/webcomponents-loader.js"></script>`);
 }
+

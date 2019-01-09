@@ -3,52 +3,58 @@ import { ExternalDashboardTileService } from './external-dashboard-tile.service'
 import { LazyDashboardTileService } from './lazy-dashboard-tile.service';
 
 @Component({
-  templateUrl: './dashboard-page.component.html',
-  styleUrls: ['./dashboard-page.component.css']
+	templateUrl: './dashboard-page.component.html',
+	styleUrls: ['./dashboard-page.component.css']
 })
 export class DashboardPageComponent {
 
-  constructor(
-    private lazyService: LazyDashboardTileService,
-    private externalService: ExternalDashboardTileService
-  ) { }
+	constructor(
+		private lazyService: LazyDashboardTileService,
+		private externalService: ExternalDashboardTileService
+	) { }
 
 
-  addTile(): void {
-    this._add('dashboard-tile');
-  }
+	addTile(): void {
+		this._add('dashboard-tile');
+	}
 
-  private _add(tileKind: string): void {
+	private _add(elementName: string): void {
 
-    const data =  [
-      Math.round(Math.random() * 100),
-      Math.round(Math.random() * 100),
-      Math.round(Math.random() * 100)
-    ];
+		const data =	[
+			Math.round(Math.random() * 100),
+			Math.round(Math.random() * 100),
+			Math.round(Math.random() * 100)
+		];
 
-    const tile = document.createElement(tileKind);
+		const content = document.getElementById('content');
 
-    tile.setAttribute('class', 'col-lg-4 col-md-3 col-sm-2');
-    tile.setAttribute('a', '' + data[0]);
-    tile.setAttribute('b', '' + data[1]);
-    tile.setAttribute('c', '' + data[2]);
+		// TODO: Dynamically add a dashboard-tile element to the content
+		//				 + set data's values to the attributes a, b, and c.
+    // HINT: use document.createElement, setAttribute, and appendChild
+    // HINT2: for the layout, assign the following classes: col-lg-4 col-md-3 col-sm-2
+		const tile = document.createElement(elementName);
 
-    const content = document.getElementById('content');
-    content.appendChild(tile);
+		tile.setAttribute('class', 'col-lg-4 col-md-3 col-sm-2');
+		tile.setAttribute('a', '' + data[0]);
+		tile.setAttribute('b', '' + data[1]);
+		tile.setAttribute('c', '' + data[2]);
 
-  }
+		content.appendChild(tile);
+		// END
 
-  
-  addLazy(): void {
-    this.lazyService.load().then(_ => {
-      this._add('lazy-dashboard-tile');
-    });
-  }
+	}
 
-  addExternal(): void {
-    this.externalService.load();
-    this._add('external-dashboard-tile');
-  }
+	
+	addLazy(): void {
+		this.lazyService.load().then(_ => {
+			this._add('lazy-dashboard-tile');
+		});
+	}
+
+	addExternal(): void {
+		this.externalService.load();
+		this._add('external-dashboard-tile');
+	}
 
 
 }

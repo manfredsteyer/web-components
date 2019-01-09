@@ -9,7 +9,9 @@ export class HelloWorldElement extends HTMLElement {
 
     set name(value: string) { 
         this._name = value; 
-        this.updateNameBinding();
+
+        const main = this.shadowRoot.getElementById('main');
+        main.innerText = 'Hello ' + this.name;
     }
 
     constructor() {
@@ -61,10 +63,6 @@ export class HelloWorldElement extends HTMLElement {
         // e. g. main.removeEventListener(...)
     }
 
-    private updateNameBinding() {
-        const main = this.shadowRoot.getElementById('main');
-        main.innerText = 'Hello ' + this.name;
-    }
 }
 
 customElements.define('hello-world', HelloWorldElement);

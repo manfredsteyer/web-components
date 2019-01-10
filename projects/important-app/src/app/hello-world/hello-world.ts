@@ -48,21 +48,6 @@ export class HelloWorldElement extends HTMLElement {
         }
     }
 
-    _counter = 0;
-
-    connectedCallback() {
-        const main = this.shadowRoot.getElementById('main');
-        main.addEventListener('click', () => {
-            this._counter++;
-            this.dispatchEvent(new CustomEvent('counted', { detail: this._counter}))
-        });
-    }
-
-    disconnectedCallback() {
-        // Remove EventListener here, 
-        // e. g. main.removeEventListener(...)
-    }
-
 }
 
 customElements.define('hello-world', HelloWorldElement);

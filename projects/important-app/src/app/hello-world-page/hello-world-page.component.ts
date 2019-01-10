@@ -9,11 +9,6 @@ export class HelloWorldPageComponent implements OnInit {
 
   constructor() { }
 
-
-  counted($event) {
-    console.debug('counted', $event.detail)
-  }
-
   ngOnInit() {
   }
 

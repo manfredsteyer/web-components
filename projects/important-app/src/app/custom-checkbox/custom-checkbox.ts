@@ -28,9 +28,12 @@ export class CustomCheckboxElement extends HTMLElement {
         this._checked = value 
         const checkbox = this.shadowRoot.querySelector('.checkbox');        
         
-        // TODO: If checked, format the checkbox by adding the checkbox-checked class. 
-        //       Otherwise, remove this class.
-        //       Hint: You can use checkbox.classList.add and .remove for this
+        if (value) {
+            checkbox.classList.add('checkbox-checked');
+        }
+        else {
+            checkbox.classList.remove('checkbox-checked');
+        }
 
     }
 
@@ -57,7 +60,6 @@ export class CustomCheckboxElement extends HTMLElement {
     connectedCallback() {
         
         const checkbox = this.shadowRoot.querySelector('.checkbox');        
-        //checkbox.addEventListener('click', this.clicked);
         
         this._clicked = () => {
             this.checked = !this.checked;
@@ -69,15 +71,18 @@ export class CustomCheckboxElement extends HTMLElement {
         checkbox.addEventListener('click', this._clicked);
     }
 
-
     disconnectedCallback() {
         const checkbox = this.shadowRoot.querySelector('.checkbox');        
         checkbox.removeEventListener('click', this._clicked);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        // TODO: Synchronize the attributes label and checked with the respective properties
-
+        if (name === 'label') {
+            this.label = newValue;
+        }
+        else if (name == 'checked') {
+            this.checked = newValue;
+        }
     }
 
 }

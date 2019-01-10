@@ -1,15 +1,7 @@
 <div>
-  <!-- TODO: Call your custom-checkbox component here.
-  Bind checked to value1, changed to changed($event), and label to Option 1-->
-    
 
-  <span>{{value1}}</span>
+  <custom-checkbox label="Option1" [checked]="value1" (changed)="changed($event)"></custom-checkbox>
+
+  <span>Checked State: {{value1}}</span>
 </div>
 
-<p>&nbsp;</p>
-
-<!-- 
-  TODO: **After** implementing the directive add another custom-checkbox here.
-  Use a Two-Way-Binding to bind value2 and set the label to Option 2.
--->
-  

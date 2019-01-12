@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject } from 'rxjs';
 
 export interface Data {
 	a: number;
@@ -18,9 +18,7 @@ export class ExternalDashboardTileComponent implements OnInit {
 
 	private src: number = 0;
 	
-	data$ = new ReplaySubject<Data>(1);
-
-	// data: Data = { a: null, b: null, c: null };
+	data: Data = { a: null, b: null, c: null };
 
 	constructor(private http: HttpClient) {
 	}
@@ -36,9 +34,7 @@ export class ExternalDashboardTileComponent implements OnInit {
 	// publish further data
     this.http
         .get<Data>(`/assets/stats-${this.src}.json`)
-        .subscribe(data => {
-			this.data$.next(data);
-		});
+        .subscribe(data => this.data = data);
   }
 
 }

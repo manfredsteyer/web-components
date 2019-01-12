@@ -20,7 +20,9 @@ import { TabComponent } from './tab.component';
       <!-- TODO: Bind the slotChange($event) method
            to this slot's slotchange event 
       -->
-      <slot></slot>
+      
+      <slot (slotchange)="slotChange($event)"></slot>
+
     </div>
 
   </div>
@@ -43,6 +45,13 @@ export class TabsComponent {
 
   slotChange($event) {
 
+    this.tabs = $event.target.assignedNodes();
+    
+    if (this.tabs.length > 0) {
+      this.activate(this.tabs[0]);
+    }
+    
+    
     // TODO: 
     //   - only display the first projected tab
     //   - put all projected tab element into the tabs array above
@@ -53,9 +62,10 @@ export class TabsComponent {
   }
 
   activate(tab: TabComponent) {
-
-    // TODO: Make sure, only the passed tab is dispayed
-
+    for(let t of this.tabs) {
+      t['hidden'] = true;
+    }
+    tab['hidden'] = false;
   }
 
 }

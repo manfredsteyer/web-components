@@ -1,16 +1,11 @@
 import { Directive, HostListener, Output, EventEmitter } from '@angular/core';
 
 @Directive({
-  selector: 'custom-checkbox'  // <-- extending custom element
+  selector: 'custom-checkbox'
 })
 export class CustomCheckboxDirective {
 
-  @Output() checkedChange = new EventEmitter();
-
-  @HostListener('changed', ['$event'])
-  changed($event) {
-    debugger;
-    this.checkedChange.next($event.detail);
-  }
+  // TODO: Add @Output checkedChange to align with naming conventions
+  // TODO: Add A HostListener for the custom element's changed event and trigger checkedChange
 
 }

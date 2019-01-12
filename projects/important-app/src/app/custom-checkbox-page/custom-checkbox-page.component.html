@@ -3,5 +3,13 @@
   <custom-checkbox label="Option1" [checked]="value1" (changed)="changed($event)"></custom-checkbox>
 
   <span>Checked State: {{value1}}</span>
+
+
+  <custom-checkbox label="Option1" [(checked)]="value2"></custom-checkbox>
+
+  <!--
+  <custom-checkbox label="Option1" [checked]="value2" (checkedChange)="value2 = $event"></custom-checkbox>
+  -->
+  <span>Checked State: {{value2}}</span>
 </div>
 

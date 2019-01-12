@@ -31,7 +31,7 @@ export class ExternalDashboardTileComponent implements OnInit {
     this.src++;
     if (this.src > 3) this.src = 1;
 
-    // publish further data
+	// publish further data
     this.http
         .get<Data>(`/assets/stats-${this.src}.json`)
         .subscribe(data => this.data = data);

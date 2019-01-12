@@ -69,3 +69,12 @@ if (typeof SVGElement.prototype.contains == 'undefined') {
 }
 
 // TODO: Add polyfills: ng g ngx-build-plus:wc-polyfill
+
+
+
+  // This polyfill for web components has to be loaded 
+  // after the other polyfills (esp. the core-js ones) 
+  // using a script tag
+  if (!window['customElements']) {
+      document.write('<script src="/assets/webcomponentsjs/webcomponents-loader.js"></script>');
+  }

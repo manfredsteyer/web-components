@@ -1,4 +1,62 @@
 
+
+export class HelloWorldElement extends HTMLElement {
+
+    _name: string;
+    get name() { return this._name; }
+    set name(v: string) { 
+        this._name = v;
+        const elm = this.shadowRoot.getElementById('main');
+        elm.innerText = 'Hello ' + this._name;
+    }
+
+    constructor() {
+        super();
+        this.attachShadow({mode: 'open'});
+        this.shadowRoot.innerHTML = '<b id="main">Hello World!</b>';
+    }
+
+    static get observedAttributes() {
+        return ['name']
+    }
+    
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name === 'name') {
+            this.name = newValue;
+        }
+    }
+    
+    connectedCallback() {
+    }
+    
+    disconnectedCallback() {
+    }
+
+}
+
+customElements.define('hello-world', HelloWorldElement);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 export class HelloWorldElement extends HTMLElement {
 
     _name: string;
@@ -51,3 +109,4 @@ export class HelloWorldElement extends HTMLElement {
 }
 
 customElements.define('hello-world', HelloWorldElement);
+*/

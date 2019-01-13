@@ -14,13 +14,6 @@ export class ExternalDashboardTileService {
     if (this.loaded) return;
     this.loaded = true;
 
-    if (!environment.production) {
-      const scriptLegacy = document.createElement('script');
-      scriptLegacy.src = 'assets/external-dashboard-tile.legacy.bundle.js';
-      document.body.appendChild(scriptLegacy);
-      return;
-    }
-
     // TODO: Create a script element (document.createElement)
     //       that points to 'assets/external-dashboard-tile.bundle.js'
     //       and append it to document.body as a child element

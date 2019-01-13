@@ -26,7 +26,7 @@
               "projects/important-app/src/styles.css"
             ],
             "lazyModules": [
-              // "projects/important-app/src/app/lazy-dashboard-tile/lazy-dashboard-tile.module"
+              "projects/important-app/src/app/lazy-dashboard-tile/lazy-dashboard-tile.module"
             ],
             "scripts": [],
             "preserveSymlinks": true

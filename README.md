@@ -1,27 +1,28 @@
-# CliWorkspace
+# Angular + Web Components Samples
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+## Using existing Web Components with Angular
 
-## Development server
+![](readme-img/hello.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Two-Way-Data-Binding with existing Web Components
 
-## Code scaffolding
+![](readme-img/two-way.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Angular Elements 
 
-## Build
+![](readme-img/dashboard.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Advanced Build Options
 
-## Running unit tests
+- Sharing dependencies by using externals (see Branch ``build-externals``)
+- Differential Serving (see Branch ``build-modern``)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Content Projection and Slot API
 
-## Running end-to-end tests
+![](readme-img/tabs.png)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Micro Apps
 
-## Further help
+![](readme-img/micro-apps.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Code see: https://github.com/manfredsteyer/Angular_MicroApps_Different_Technologies

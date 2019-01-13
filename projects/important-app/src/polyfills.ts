@@ -68,4 +68,3 @@ if (typeof SVGElement.prototype.contains == 'undefined') {
     SVGElement.prototype.contains = HTMLDivElement.prototype.contains;
 }
 
-// TODO: Add polyfills: ng g ngx-build-plus:wc-polyfill

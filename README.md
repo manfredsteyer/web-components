@@ -26,3 +26,6 @@
 ![](readme-img/micro-apps.png)
 
 Code see: https://github.com/manfredsteyer/Angular_MicroApps_Different_Technologies
+
+## More: Workshops & Blog
+See: https://www.softwarearchitekt.at

@@ -11,7 +11,7 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:build",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/important-app",
             "index": "projects/important-app/src/index.html",
@@ -69,7 +69,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "projects/important-app/src/test.ts",
             "polyfills": "projects/important-app/src/polyfills.ts",
@@ -107,7 +107,7 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:build",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/external",
             "index": "projects/external/src/index.html",
@@ -168,7 +168,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "projects/external/src/test.ts",
             "polyfills": "projects/external/src/polyfills.ts",

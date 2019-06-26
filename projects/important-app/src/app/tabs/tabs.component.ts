@@ -16,7 +16,7 @@ import { TabComponent } from './tab.component';
       </div>
     </div>
 
-    <div  style="clear:both;">
+    <div style="clear:both;">
       <!-- TODO: Bind the slotChange($event) method
            to this slot's slotchange event 
       -->

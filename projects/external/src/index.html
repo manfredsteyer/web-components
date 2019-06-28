@@ -26,11 +26,8 @@
     </div>
   </div>
 
-  <!-- Polyfills for Browsers supporting 
-        Custom Elements. Needed b/c we downlevel
-        to ES5. See: @webcomponents/custom-elements
-  -->
-  <script src="./assets/custom-elements/src/native-shim.js"></script>
+  <!-- Comment this out, *if* using differential loading or es2015 as a target in Angular 8+ -->
+  <script src="./assets/webcomponentsjs/custom-elements-es5-adapter.js"></script>
 
 
 </body>
